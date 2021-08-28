@@ -98,8 +98,17 @@
     line-height: 115%;
 }
 
+.key:hover{
+    box-shadow: 0 0 5px blue;
+    user-select: none;
+}
+
 .specialKeys {
     border-color: #333333;
     background-color: #777777;
     color: white;
+}
+
+.specialKeys:hover{
+    box-shadow: 0 0 15px yellow;
 }

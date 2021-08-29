@@ -83,7 +83,7 @@
 }
 
 #equal {
-    width: 75%;
+    width: 83%;
 }
 
 .key {
@@ -106,9 +106,27 @@
 .specialKeys {
     border-color: #333333;
     background-color: #777777;
-    color: white;
+    color: whitesmoke;
 }
 
 .specialKeys:hover{
     box-shadow: 0 0 15px yellow;
+}
+
+#clear {
+    color: red;
+    background-color: yellow;
+    text-shadow: 3px 2px 10px black;
+}
+
+#clear:hover {
+    box-shadow: 0 0 15px red;
+}
+
+.inactive {
+    opacity: 50%;
+    color: lightgray;
+}
+.inactive:hover {
+    box-shadow: 0 0 0px white;
 }

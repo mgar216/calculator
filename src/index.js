@@ -61,11 +61,26 @@ function clearAll(){
     val2 = 0
     mod = ''
     isPost = false
+    activateKeys(modKeys)
 }
 
 function setDecimal(val){
     if (!String(val).includes('.')) return String(val) + '.';
     else return val;
+}
+
+function disableKeys(keysNode){
+    keysNode.forEach((key) => {
+        key.classList.add('inactive')
+        console.log(key.classList)
+    })
+}
+
+function activateKeys(keysNode){
+    keysNode.forEach((key) => {
+        key.classList.remove('inactive')
+        console.log(key.classList)
+    })
 }
 
 var display = document.getElementById('calcCurrent')
@@ -74,6 +89,8 @@ var val1 = 0
 var val2 = 0
 var mod = ''
 var isPost = false
+
+const modKeys = document.querySelectorAll('.mod')
 
 const dataKeys = document.querySelectorAll('.data-key')
 // Set up data-keys to return their value on click
@@ -93,6 +110,7 @@ specialKeys.forEach((key) => {
             mod = key.textContent
             display.textContent = ''
             opDisplay.textContent = String(val1) + ' ' + mod
+            disableKeys(modKeys)
         }
     })
 })
@@ -108,11 +126,11 @@ equal.addEventListener('click', () => {
         }
         display.textContent = newDisplay
         opDisplay.textContent = returnOpDisplay(val1, mod, val2, display.textContent)
-        console.log(display)
         val1 = 0
         val2  = 0
         mod = ''
         isPost = true
+        activateKeys(modKeys)
     }
 })
 
@@ -128,4 +146,9 @@ sign.addEventListener('click', () => {
     } else {
         display.textContent = '-'
     }
+})
+
+const clear = document.getElementById('clear')
+clear.addEventListener('click', () => {
+    clearAll()
 })
